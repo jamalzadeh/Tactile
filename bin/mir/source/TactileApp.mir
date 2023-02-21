@@ -1,0 +1,182 @@
+[ @file = "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc"; @line = 1; ]
+using Toybox.Application as :App;
+[ @file = "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc"; @line = 2; ]
+using Toybox.Lang;
+[ @file = "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc"; @line = 3; ]
+using Toybox.WatchUi;
+[ @file = "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc"; @line = 4; ]
+using Toybox.Communications;
+[ @file = "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc"; @line = 5; ]
+using Toybox.System;
+[ @file = "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc"; @line = 6; ]
+using Toybox.Attention as :Attention;
+[ @file = "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc"; @line = 8; ]
+class TactileApp extends App.AppBase{
+    [ @file = "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc"; @line = 8; ]
+    <init> {
+    }
+    [ @file = "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc"; @line = 8; ]
+    static
+    <init> {
+    }
+    [ @file = "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc"; @line = 10; ]
+    function initialize() as Void {
+C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_10_26_start:
+[ "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc" 11 8 ]
+        %tmp.1 = getm $.Toybox.Application;
+        %tmp.2 = getv %tmp.1 :AppBase;
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+[ "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc" 13 8 ]
+C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_13_8_if_stmt:
+        %tmp.5 = getm $.Toybox.Communications;
+        %tmp.7 = const :registerForPhoneAppMessages;
+        %tmp.8 = canhazplz %tmp.5 %tmp.7;
+        bf %tmp.8 @C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_13_8_if_false;
+C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_13_8_if_true:
+C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_14_8_start:
+[ "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc" 15 12 ]
+        %tmp.9 = getm $.Toybox.Communications;
+        %tmp.10 = getv function %tmp.9 :registerForPhoneAppMessages;
+        %tmp.11 = self;
+        %tmp.12 = getv function %tmp.11 :method;
+        %tmp.14 = const :onReceiveMessage;
+        %tmp.15 = invoke %tmp.11 %tmp.12(%tmp.14);
+        invoke %tmp.9 %tmp.10(%tmp.15);
+C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_14_8_stop:
+        goto @C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_13_8_if_end;
+C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_13_8_if_false:
+C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_20_8_start:
+[ "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc" 22 9 ]
+        %tmp.18 = getm $.Toybox.Lang;
+        %tmp.19 = getv function ? %tmp.18 :Exception;
+        %tmp.16 = newc %tmp.19 ();
+        throw %tmp.16;
+C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_20_8_stop:
+C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_13_8_if_end:
+C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_10_26_stop:
+    }
+    [ @file = "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc"; @line = 27; ]
+    function onReceiveMessage(msg) {
+C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_28_1_start:
+[ "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc" 29 2 ]
+        %tmp.1 = getv self :PhoneMessageHandler;
+        %tmp.2 = true;
+        putv %tmp.1 :isNewMessage %tmp.2;
+[ "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc" 30 2 ]
+        %tmp.3 = getv self :PhoneMessageHandler;
+        %tmp.5 = lgetv %msg;
+        putv %tmp.3 :message %tmp.5;
+[ "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc" 31 8 ]
+        [ "C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_28_1_start" "C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_28_1_stop" ]
+        %test2.1 = local;
+        %tmp.6 = lgetv %msg;
+        %tmp.7 = getv %tmp.6 :data;
+        %tmp.8 = getv function %tmp.7 :toNumber;
+        %tmp.9 = invoke %tmp.7 %tmp.8();
+        lputv %test2.1 %tmp.9;
+[ "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc" 33 2 ]
+        [ "C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_28_1_start" "C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_28_1_stop" ]
+        %vibeData.2 = local;
+        %tmp.10 = newa 1;
+        %tmp.13 = getm $.Toybox.Attention;
+        %tmp.14 = getv function ? %tmp.13 :VibeProfile;
+        %tmp.16 = lgetv %test2.1;
+        %tmp.17 = 2000;
+        %tmp.11 = newc %tmp.14 (%tmp.16, %tmp.17);
+        %tmp.18 = dup %tmp.10;
+        %tmp.19 = aputv %tmp.18 0 %tmp.11;
+        lputv %vibeData.2 %tmp.19;
+[ "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc" 34 8 ]
+        [ "C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_28_1_start" "C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_28_1_stop" ]
+        %vibeData2.3 = local;
+        %tmp.20 = newa 1;
+        %tmp.23 = getm $.Toybox.Attention;
+        %tmp.24 = getv function ? %tmp.23 :VibeProfile;
+        %tmp.25 = 80;
+        %tmp.26 = 2000;
+        %tmp.21 = newc %tmp.24 (%tmp.25, %tmp.26);
+        %tmp.27 = dup %tmp.20;
+        %tmp.28 = aputv %tmp.27 0 %tmp.21;
+        lputv %vibeData2.3 %tmp.28;
+[ "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc" 35 8 ]
+        try @C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_35_8_beginTry @C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_35_8_endTry @C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_35_8_catch @C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_35_8_finally;
+C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_35_8_beginTry:
+C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_35_12_start:
+[ "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc" 36 12 ]
+        %tmp.29 = getm $.Toybox.Attention;
+        %tmp.30 = getv function %tmp.29 :vibrate;
+        %tmp.32 = lgetv %vibeData.2;
+        invoke %tmp.29 %tmp.30(%tmp.32);
+C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_35_12_stop:
+C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_35_8_endTry:
+        jsr @C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_35_8_finally;
+        goto @C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_35_8_end;
+C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_35_8_catch:
+        %tmp.33 = exception;
+        push %tmp.33;
+        [ "C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_35_8_catch" "C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_37_9_end" ]
+        %e.4 = local;
+        %tmp.34 = dup %tmp.33;
+        lputv %e.4 %tmp.34;
+C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_37_19_start:
+[ "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc" 40 12 ]
+        %tmp.35 = getm $.Toybox.System;
+        %tmp.36 = getv function %tmp.35 :println;
+        %tmp.37 = lgetv %e.4;
+        %tmp.38 = getv function %tmp.37 :getErrorMessage;
+        %tmp.39 = invoke %tmp.37 %tmp.38();
+        invoke %tmp.35 %tmp.36(%tmp.39);
+C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_37_19_stop:
+        jsr @C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_35_8_finally;
+        pop;
+        goto @C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_35_8_end;
+C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_37_9_end:
+        jsr @C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_35_8_finally;
+        throw %tmp.33;
+C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_35_8_finally:
+        jsrret;
+C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_35_8_end:
+[ "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc" 42 8 ]
+        %tmp.40 = getm $.Toybox.WatchUi;
+        %tmp.41 = getv function %tmp.40 :requestUpdate;
+        invoke %tmp.40 %tmp.41();
+C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_28_1_stop:
+    }
+    [ @file = "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc"; @line = 46; ]
+    function onStart(state) {
+    }
+    [ @file = "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc"; @line = 51; ]
+    function onStop(state) {
+    }
+    [ @file = "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc"; @line = 55; ]
+    function getInitialView() {
+C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_55_30_start:
+[ "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc" 56 8 ]
+        %tmp.1 = newa 2;
+        %tmp.5 = getv ? :TactileView;
+        %tmp.2 = newc %tmp.5 ();
+        %tmp.6 = dup %tmp.1;
+        %tmp.7 = aputv %tmp.6 0 %tmp.2;
+        %tmp.11 = getv ? :TactileDelegate;
+        %tmp.8 = newc %tmp.11 ();
+        %tmp.12 = dup %tmp.7;
+        %tmp.13 = aputv %tmp.12 1 %tmp.8;
+        ret %tmp.13;
+C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_55_30_stop:
+    }
+}
+[ @file = "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc"; @line = 62; ]
+function getApp() as TactileApp {
+C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_62_32_start:
+[ "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc" 63 4 ]
+    %tmp.1 = getm $.Toybox.Application;
+    %tmp.2 = getv function %tmp.1 :getApp;
+    %tmp.3 = invoke %tmp.1 %tmp.2();
+    %tmp.4 = as %tmp.3 TactileApp;
+    ret %tmp.4;
+C_Users_milad_OneDrive_Documents_Genoa_Smartwatch_Garmin_Tactile_source_TactileApp_mc_62_32_stop:
+}
+[ @file = "C:\Users\milad\OneDrive\Documents\Genoa\Smartwatch\Garmin\Tactile\source\TactileApp.mc"; @line = 1; ]
+<init> {
+}
